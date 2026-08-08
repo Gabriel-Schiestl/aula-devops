@@ -19,6 +19,7 @@ def test_desconto_invalido():
     with pytest.raises(ValueError):
         calcular_total([(100.0, 1)], desconto_percentual=110)
 
+
 def test_total_com_cupom():
     itens = [(100.0, 2), (50.0, 1)]
 
