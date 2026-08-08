@@ -22,8 +22,8 @@ def calcular_total(itens, desconto_percentual=0, cupom=None):
     desconto_total = min(desconto_total, 100)
 
     total = subtotal - (subtotal * (desconto_total / 100))
-    #teste
     return round(total, 2)
+
 
 def obter_desconto_cupom(cupom):
     """
