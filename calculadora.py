@@ -1,4 +1,4 @@
-def calcular_total(itens, desconto_percentual=0):
+def calcular_total(itens, desconto_percentual=0, cupom=None):
     """
     Calcula o total de uma compra.
 
@@ -13,6 +13,21 @@ def calcular_total(itens, desconto_percentual=0):
         for preco_unitario, quantidade in itens
     )
 
-    total = subtotal - (subtotal * (desconto_percentual / 100))
+    desconto_total = desconto_percentual + obter_desconto_cupom(cupom)
+    desconto_total = min(desconto_total, 100)
+
+    total = subtotal - (subtotal * (desconto_total / 100))
     #teste
     return round(total, 2)
+
+def obter_desconto_cupom(cupom):
+    """
+    Retorna o desconto associado a um cupom.
+
+    Se o cupom não for válido, retorna 0.
+    """
+    cupons_validos = {
+        "DEVOPS10": 10,
+    }
+
+    return cupons_validos.get(cupom, 0)
