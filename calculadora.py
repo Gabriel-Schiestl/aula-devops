@@ -4,6 +4,11 @@ def calcular_total(itens, desconto_percentual=0, cupom=None):
 
     Cada item representa uma tupla no formato:
     (preco_unitario, quantidade)
+
+    O desconto percentual é aplicado sobre o subtotal da compra.
+
+    Se um cupom válido for fornecido, o desconto associado ao cupom
+    será adicionado ao desconto percentual.
     """
     if not 0 <= desconto_percentual <= 100:
         raise ValueError("O desconto precisa estar entre 0 e 100.")
