@@ -27,12 +27,17 @@ def calcular_total(itens, desconto_percentual=0, cupom=None):
 
 def obter_desconto_cupom(cupom):
     """
-    Retorna o desconto associado a um cupom.
+    Retorna o desconto associado a um cupom (em percentual).
 
     Se o cupom não for válido, retorna 0.
     """
+    if cupom is None:
+        return 0
+    if not isinstance(cupom, str):
+        return 0
+
     cupons_validos = {
         "DEVOPS10": 10,
     }
 
-    return cupons_validos.get(cupom, 0)
+    return cupons_validos.get(cupom.strip().upper(), 0)
